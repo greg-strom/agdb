@@ -47,7 +47,6 @@ export default function MainView() {
 
   function discClickHandle(disc) {
     setSelectedDisc(disc);
-    console.log('now the selected disc is ' + selectedDisc);
   }
 
   return (
