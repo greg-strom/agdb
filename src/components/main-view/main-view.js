@@ -4,6 +4,8 @@ import axios from 'axios';
 import NavBar from '../navbar/navbar';
 import DiscCard from '../disc-card/disc-card';
 import DiscView from '../disc-view/disc-view';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const APIURL = 'https://avant-garde-api.herokuapp.com/'
 
@@ -52,12 +54,21 @@ export default function MainView() {
     <>
       <NavBar />
       <button onClick={() => { alert('Nice!') }}>Click me!</button>
-      <div className="main-view">
+      <Row className="main-view justify-content-md-center">
         {selectedDisc
-          ? <DiscView disc={selectedDisc} onBackClick={newSelectedDisc => { discClickHandle(newSelectedDisc); }} />
-          : discs.map(disc => <DiscCard key={disc._id} disc={disc} onDiscClick={(disc) => discClickHandle(disc)} />)
+          ? (
+            <Col md={8}>
+              <DiscView disc={selectedDisc} onBackClick={newSelectedDisc => { discClickHandle(newSelectedDisc); }} />
+            </Col>
+          )
+          : discs.map(disc => (
+            <Col md={3} key={disc._id} >
+              <DiscCard disc={disc} onDiscClick={(disc) => discClickHandle(disc)} />
+            </Col>
+          ))
+
         }
-      </div>
+      </Row>
     </>
   )
 }
