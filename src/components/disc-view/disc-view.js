@@ -7,19 +7,35 @@ import Button from 'react-bootstrap/Button';
 export default function DiscView(props) {
   const { disc, onBackClick } = props;
   return (
-    <Row className="justify-content-md-center">
-      <Col md={8}>
+    <Row className="justify-content-md-start">
+      <Col md={3}>
         <Card className="disc-view">
           <Card.Img variant="top" className="disc-cover-art" alt="disc cover art" src={disc.imagepath} />
+        </Card>
+      </Col>
+      <Col md={9}>
+        <Card>
           <Card.Body>
-            <Card.Title className="record-label">{disc.recordlabel}</Card.Title>
-            <Card.Subtitle className="catalog-number">{disc.catalognumber}</Card.Subtitle>
+            <Card.Title>{disc.recordings[0].composer.givenname} {disc.recordings[0].composer.surname}</Card.Title>
+            {disc.recordings.map((recording) => (
+              <div key={recording._id}>
+                <Card.Subtitle>{recording.piece.title} ({recording.piece.year})</Card.Subtitle>
+                <Card.Subtitle>{recording.performers.map((performer, index) => (
+                  <span key={index}>{performer + (index === recording.performers.length - 1 ? '' : ', ')} </span>
+                ))}
+                </Card.Subtitle>
+                <br />
+              </div>
+            ))}
+
             {/* <Link to={`/directors/${movie.Director.Name}`}>
             <Button variant="link">Director</Button>
           </Link>
           <Link to={`/genres/${movie.Genre.Name}`}>
             <Button variant="link">Genre</Button>
           </Link> */}
+            <Card.Text className="post">{disc.comments}</Card.Text>
+            <Card.Subtitle className="record-label">{disc.recordlabel} {disc.catalognumber}</Card.Subtitle>
             <Button variant="primary" type="submit" onClick={() => { onBackClick(null); }}>Back</Button>
           </Card.Body>
         </Card>

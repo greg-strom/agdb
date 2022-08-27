@@ -6,6 +6,7 @@ import DiscCard from '../disc-card/disc-card';
 import DiscView from '../disc-view/disc-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 const APIURL = 'https://avant-garde-api.herokuapp.com/'
 
@@ -34,7 +35,7 @@ export default function MainView() {
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
-  useEffect(() => { }, [composers, pieces, recordings, discs])
+  useEffect(() => { console.log(discs) }, [composers, pieces, recordings, discs])
 
   // This is a useEffect I used to check how the state was changing as I wrote my code. May be useful again some time.
   // useEffect(() => {
@@ -52,20 +53,19 @@ export default function MainView() {
   return (
     <>
       <NavBar />
-      <button onClick={() => { alert('Nice!') }}>Click me!</button>
-      <Row className="main-view justify-content-md-center">
+      <Row className="main-view justify-content-md-start">
         {selectedDisc
           ? (
-            <Col md={8}>
+            <Col>
               <DiscView disc={selectedDisc} onBackClick={newSelectedDisc => { discClickHandle(newSelectedDisc); }} />
             </Col>
           )
           : discs.map(disc => (
             <Col md={3} key={disc._id} >
+
               <DiscCard disc={disc} onDiscClick={(disc) => discClickHandle(disc)} />
             </Col>
           ))
-
         }
       </Row>
     </>
