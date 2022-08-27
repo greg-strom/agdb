@@ -8,6 +8,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardGroup from 'react-bootstrap/CardGroup';
 
+import './main-view.scss';
+
 const APIURL = 'https://avant-garde-api.herokuapp.com/'
 
 export default function MainView() {

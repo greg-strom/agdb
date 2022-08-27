@@ -4,17 +4,19 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+import './disc-view.scss';
+
 export default function DiscView(props) {
   const { disc, onBackClick } = props;
   return (
     <Row className="justify-content-md-start">
       <Col md={3}>
-        <Card className="disc-view">
+        <Card>
           <Card.Img variant="top" className="disc-cover-art" alt="disc cover art" src={disc.imagepath} />
         </Card>
       </Col>
       <Col md={9}>
-        <Card>
+        <Card className="border-0">
           <Card.Body>
             <Card.Title>{disc.recordings[0].composer.givenname} {disc.recordings[0].composer.surname}</Card.Title>
             {disc.recordings.map((recording) => (
@@ -35,8 +37,8 @@ export default function DiscView(props) {
             <Button variant="link">Genre</Button>
           </Link> */}
             <Card.Text className="post">{disc.comments}</Card.Text>
-            <Card.Subtitle className="record-label">{disc.recordlabel} {disc.catalognumber}</Card.Subtitle>
-            <Button variant="primary" type="submit" onClick={() => { onBackClick(null); }}>Back</Button>
+            <Card.Subtitle className="record-label">{disc.recordlabel} - {disc.catalognumber}</Card.Subtitle>
+            <Button className="back-button" variant="primary" type="submit" onClick={() => { onBackClick(null); }}>Back</Button>
           </Card.Body>
         </Card>
       </Col>
