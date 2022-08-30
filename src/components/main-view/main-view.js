@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import NavBar from '../navbar/navbar';
 import DiscCard from '../disc-card/disc-card';
@@ -56,20 +57,25 @@ export default function MainView() {
     <>
       <NavBar />
       <Row className="main-view justify-content-md-start">
-        {selectedDisc
-          ? (
-            <Col>
-              <DiscView disc={selectedDisc} onBackClick={newSelectedDisc => { discClickHandle(newSelectedDisc); }} />
-            </Col>
-          )
-          : discs.map(disc => (
-            <Col md={3} key={disc._id} >
-
-              <DiscCard disc={disc} onDiscClick={(disc) => discClickHandle(disc)} />
-            </Col>
-          ))
+        {discs.map(disc => (
+          <Col md={3} key={disc._id} >
+            <DiscCard disc={disc} />
+          </Col>
+        ))
         }
       </Row>
     </>
   )
 }
+
+
+
+//onDiscClick={(disc) => discClickHandle(disc)}
+
+        // selectedDisc
+        //   ? (
+        //     <Col>
+        //       <DiscView disc={selectedDisc} onBackClick={newSelectedDisc => { discClickHandle(newSelectedDisc); }} />
+        //     </Col>
+        //   )
+        //   : 

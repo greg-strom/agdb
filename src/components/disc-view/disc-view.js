@@ -3,11 +3,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { useParams } from "react-router-dom";
 
 import './disc-view.scss';
 
 export default function DiscView(props) {
   const { disc, onBackClick } = props;
+  let params = useParams()
+  const discId = params.discId;
+  console.log(discId);
+  console.log(params)
   return (
     <Row className="justify-content-md-start">
       <Col md={3}>
