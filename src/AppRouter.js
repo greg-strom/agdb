@@ -7,6 +7,7 @@ import MainView from "./components/main-view/main-view";
 import NavBar from "./components/navbar/navbar";
 import DiscView from "./components/disc-view/disc-view";
 import DiscCard from "./components/disc-card/disc-card";
+import ComposerView from "./components/composer-view/composer-view";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 //import { getDiscs } from './data/discs';
@@ -43,7 +44,7 @@ export default function AppRouter() {
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
-  useEffect(() => { }, [composers, pieces, recordings, discs])
+  useEffect(() => { console.log("composers is" + JSON.stringify(composers)) }, [composers, pieces, recordings, discs])
 
 
   return (
@@ -61,6 +62,12 @@ export default function AppRouter() {
           <Route path="/discs/:discId" render={({ match, history }) => {
             return <Col md={8}>
               <DiscView disc={discs.find(d => d._id === match.params.discId)} onBackClick={() => history.goBack()} />
+            </Col>
+          }} />
+          <Route path="/composers/:surname" render={({ match, history }) => {
+            console.log(console.log("discs is" + discs))
+            return <Col md={8}>
+              <ComposerView composer={composers.find(c => c.data.surname === match.params.surname)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 

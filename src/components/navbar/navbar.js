@@ -14,7 +14,7 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="#home">about the AGDb</Nav.Link>
             <NavDropdown title="the Darmstadt School" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.3">Pierre Boulez</NavDropdown.Item>
+              <NavDropdown.Item href="/composers/Boulez">Pierre Boulez</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">Karlheinz Stockhausen</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.5">Luigi Nono</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.6">György Ligeti</NavDropdown.Item>
