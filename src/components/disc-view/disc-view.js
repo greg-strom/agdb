@@ -11,12 +11,12 @@ export default function DiscView(props) {
   const { disc, onBackClick } = props;
   return (
     <Row className="justify-content-md-start">
-      <Col md={3}>
+      <Col md={4}>
         <Card>
           <Card.Img variant="top" className="disc-cover-art" alt="disc cover art" src={disc.imagepath} />
         </Card>
       </Col>
-      <Col md={9}>
+      <Col md={8}>
         <Card className="border-0">
           <Card.Body>
             <Card.Title>{disc.recordings[0].composer.givenname} {disc.recordings[0].composer.surname}</Card.Title>
