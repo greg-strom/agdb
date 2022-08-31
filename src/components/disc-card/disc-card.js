@@ -8,8 +8,6 @@ import './disc-card.scss';
 
 export default function DiscCard(props) {
   const { disc } = props;
-  console.log('the disccard thinks that the value of disc._id is');
-  console.log(disc._id)
   return (
     <Card className="h-100 m-25 border-0 disc-card">
       <Link to={`/discs/${disc._id}`}>
@@ -29,10 +27,6 @@ export default function DiscCard(props) {
             ))} */}
           </div>
         ))}
-        <Link to={`/discs/${disc._id}`}>
-          <Button variant="link">Open</Button>
-        </Link>
-
       </Card.Body>
     </Card>
   )

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
 import MainView from "./components/main-view/main-view";
 import NavBar from "./components/navbar/navbar";
@@ -42,7 +43,7 @@ export default function AppRouter() {
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
-  useEffect(() => { console.log(discs) }, [composers, pieces, recordings, discs])
+  useEffect(() => { }, [composers, pieces, recordings, discs])
 
 
   return (
@@ -51,17 +52,15 @@ export default function AppRouter() {
       <Router>
         <Row className="main-view justify-content-md-start">
           <Route exact path="/" render={() => {
-            console.log(discs);
             return discs.map(d => (
               <Col md={3} key={d._id.$oid}>
                 <DiscCard disc={d} />
               </Col>
             ))
           }} />
-          <Route path="/discs/:discId" render={({ match }) => {
-            console.log('in AppRouter, the discs/:discId console.log gives us: ' + discs.find(d => d._id.$oid === match.params.movieId));
+          <Route path="/discs/:discId" render={({ match, history }) => {
             return <Col md={8}>
-              <DiscView disc={discs.find(d => d._id.$oid === match.params.movieId)} />
+              <DiscView disc={discs.find(d => d._id === match.params.discId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
