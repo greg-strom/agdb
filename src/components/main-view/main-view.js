@@ -22,7 +22,7 @@ export default function MainView() {
 
   useEffect(() => {
     axios.get(`${APIURL}composers`).then((response) => {
-      setComposers(response);
+      setComposers(response.data);
     })
     axios.get(`${APIURL}pieces`).then((response) => {
       setPieces(response.data);
