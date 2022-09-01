@@ -8,6 +8,7 @@ import NavBar from "./components/navbar/navbar";
 import DiscView from "./components/disc-view/disc-view";
 import DiscCard from "./components/disc-card/disc-card";
 import ComposerView from "./components/composer-view/composer-view";
+import About from "./components/about-view/about";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 //import { getDiscs } from './data/discs';
@@ -28,7 +29,7 @@ export default function AppRouter() {
 
   useEffect(() => {
     axios.get(`${APIURL}composers`).then((response) => {
-      setComposers(response);
+      setComposers(response.data);
     })
     axios.get(`${APIURL}pieces`).then((response) => {
       setPieces(response.data);
@@ -49,8 +50,9 @@ export default function AppRouter() {
 
   return (
     <>
-      <NavBar />
+
       <Router>
+        <NavBar />
         <Row className="main-view justify-content-md-start">
           <Route exact path="/" render={() => {
             return discs.map(d => (
@@ -65,9 +67,15 @@ export default function AppRouter() {
             </Col>
           }} />
           <Route path="/composers/:surname" render={({ match, history }) => {
-            console.log(console.log("discs is" + discs))
+            console.log("discs is" + discs);
+            console.log("composers is" + JSON.stringify(composers));
             return <Col md={8}>
-              <ComposerView composer={composers.find(c => c.data.surname === match.params.surname)} onBackClick={() => history.goBack()} />
+              <ComposerView composer={composers.find(c => c.surname === match.params.surname)} onBackClick={() => history.goBack()} />
+            </Col>
+          }} />
+          <Route path="/about" render={({ history }) => {
+            return <Col>
+              <About onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
