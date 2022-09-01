@@ -3,30 +3,61 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from 'react-router-bootstrap'
 
 function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">AGDb</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>AGDb</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">about the AGDb</Nav.Link>
+            <LinkContainer to="/about">
+              <Nav.Link>about the AGDb</Nav.Link>
+            </LinkContainer>
             <NavDropdown title="the Darmstadt School" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/composers/Boulez">Pierre Boulez</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Karlheinz Stockhausen</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.5">Luigi Nono</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.6">György Ligeti</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.7">Luciano Berio</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.8">Iannis Xenakis</NavDropdown.Item>
+
+              <LinkContainer to="/composers/Boulez">
+                <NavDropdown.Item>Pierre Boulez</NavDropdown.Item>
+              </LinkContainer>
+
+              <LinkContainer to="/composers/Stockhausen">
+                <NavDropdown.Item>Karlheinz Stockhausen</NavDropdown.Item>
+              </LinkContainer>
+
+              <LinkContainer to="/composers/Nono">
+                <NavDropdown.Item>Luigi Nono</NavDropdown.Item>
+              </LinkContainer>
+
+              <LinkContainer to="/composers/Ligeti">
+                <NavDropdown.Item>György Ligeti</NavDropdown.Item>
+              </LinkContainer>
+
+              <LinkContainer to="/composers/Berio">
+                <NavDropdown.Item>Luciano Berio</NavDropdown.Item>
+              </LinkContainer>
+
+              <LinkContainer to="/composers/Xenakis">
+                <NavDropdown.Item>Iannis Xenakis</NavDropdown.Item>
+              </LinkContainer>
+
             </NavDropdown>
+
             <NavDropdown title="the New York School" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">John Cage</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Morton Feldman</NavDropdown.Item>
-              <NavDropdown.Item href="#action/Wolff">Christian Wolff</NavDropdown.Item>
+
+              <LinkContainer to="/composers/Cage">
+                <NavDropdown.Item>John Cage</NavDropdown.Item>
+              </LinkContainer>
+
+              <LinkContainer to="/composers/Feldman">
+                <NavDropdown.Item>Morton Feldman</NavDropdown.Item>
+              </LinkContainer>
+              {/* <NavDropdown.Item href="#action/Wolff">Christian Wolff</NavDropdown.Item>
               <NavDropdown.Item href="#action/Brown">Earle Brown</NavDropdown.Item>
-              <NavDropdown.Item href="#action/Tudor">David Tudor</NavDropdown.Item>
+              <NavDropdown.Item href="#action/Tudor">David Tudor</NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
