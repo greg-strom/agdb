@@ -1,6 +1,4 @@
 import React from 'react'
-import DiscView from '../disc-view/disc-view'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { LinkContainer } from 'react-router-bootstrap';
