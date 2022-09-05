@@ -20,19 +20,10 @@ export default function DiscCard(props) {
         </LinkContainer>
         {disc.recordings.map((recording, index) => (
           <div key={recording._id}>
-
             <Card.Text className="piece-details"><span className="piece-title">{recording.piece.title}</span> ({recording.piece.year})</Card.Text>
-            {/* {recording.performers.map((performer, index) => (
-              <div><span key={index}>{performer + (index === recording.performers.length - 1 ? '' : ', ')} </span><br></br></div>
-              // <div key={index}>
-              //   <Card.Subtitle>{performer}</Card.Subtitle>
-              // </div>
-            ))} */}
           </div>
         ))}
       </Card.Body>
     </Card >
   )
 }
-
-// onClick={() => onDiscClick(disc)}
