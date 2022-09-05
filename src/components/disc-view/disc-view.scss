@@ -2,3 +2,41 @@
   position: absolute;
   right: 0;
 }
+
+.record-data {
+  text-align: right;
+  margin-top: 2px;
+}
+
+.recording-info {
+  margin-bottom: 15px;
+}
+
+
+.link {
+  cursor: pointer;
+}
+
+.piece-title-span {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.piece-year-span {
+  font-weight: normal;
+}
+
+.piece-title-and-year {
+  margin-bottom: 3px;
+  left: 25px;
+}
+
+.performers-info {
+  font-weight: normal;
+  left: 25px;
+}
+
+.recording-info-wrapper {
+  position: absolute;
+  left: 25px;
+}

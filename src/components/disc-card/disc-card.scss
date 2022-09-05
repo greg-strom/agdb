@@ -1,13 +1,26 @@
-.disc-cover-art {
+.link {
   cursor: pointer;
 }
 
 .disc-card {
   box-sizing: border-box;
   display: block;
-  width: 90%;
+  width: 95%;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 1.5%;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.piece-details {
+  margin-bottom: 0px;
+  left: 25px;
+}
+
+.piece-title {
+  font-style: italic;
 }
