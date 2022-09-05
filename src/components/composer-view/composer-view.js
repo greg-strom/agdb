@@ -16,13 +16,12 @@ export default function ComposerViewTest(props) {
   useEffect(() => {
     axios.get(`${APIURL}composers/${surname}`).then((response) => {
       setComposer(response.data);
-      console.log("the first useEffect in composerview thinks that the surname is " + surname);
     })
   }, [])
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
-  useEffect(() => { console.log("the second useEffect in composerview thinks that the surname is " + surname) }, [composer])
+  useEffect(() => { }, [surname])
 
   return (
     <Row className="justify-content-md-start">
