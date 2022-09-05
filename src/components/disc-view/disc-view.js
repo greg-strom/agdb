@@ -13,9 +13,7 @@ const APIURL = 'https://avant-garde-api.herokuapp.com/';
 
 export default function DiscView(props) {
   const { onBackClick } = props;
-
   const { discId } = useParams();
-
   const [disc, setDisc] = useState(null)
 
   useEffect(() => {
@@ -23,7 +21,6 @@ export default function DiscView(props) {
       setDisc(response.data);
     })
   }, [])
-
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
@@ -49,7 +46,6 @@ export default function DiscView(props) {
                   </Card.Subtitle>
                 </div>
               ))}
-
             </div>
           </Card.Body>
         </Card>
@@ -57,19 +53,16 @@ export default function DiscView(props) {
       <Col md={8}>
         <Card className="border-0">
           <Card.Body>
-
             {disc && disc.comments
               ?
               <Card.Text className="post">{disc && disc.comments}</Card.Text>
               :
               <Card.Text className="post">In the fullness of time, I will post some commentary about this CD here.</Card.Text>
             }
-
             <Button className="back-button" variant="primary" type="submit" onClick={() => { onBackClick(null); }}>Back</Button>
           </Card.Body>
         </Card>
       </Col>
-
     </Row>
   )
 }
