@@ -47,22 +47,5 @@ export default function ComposerViewTest(props) {
       </Col>
 
     </Row>
-    //         {/* {disc.recordings.map((recording) => (
-    //           <div key={recording._id}>
-    //             <Card.Subtitle>{recording.piece.title} ({recording.piece.year})</Card.Subtitle>
-    //             <Card.Subtitle>{recording.performers.map((performer, index) => (
-    //               <span key={index}>{performer + (index === recording.performers.length - 1 ? '' : ', ')} </span>
-    //             ))}
-    //             </Card.Subtitle>
-    //             <br />
-    //           </div>
-    //         ))} */}
-
-    //         {/* <Link to={`/directors/${movie.Director.Name}`}>
-    //         <Button variant="link">Director</Button>
-    //       </Link>
-    //       <Link to={`/genres/${movie.Genre.Name}`}>
-    //         <Button variant="link">Genre</Button>
-    //       </Link> */}
   )
 }
