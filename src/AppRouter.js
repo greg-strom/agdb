@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
-import { useParams } from "react-router-dom";
 
-import MainView from "./components/main-view/main-view";
 import NavBar from "./components/navbar/navbar";
 import DiscView from "./components/disc-view/disc-view";
 import DiscCard from "./components/disc-card/disc-card";
@@ -18,25 +16,26 @@ import Col from 'react-bootstrap/Col';
 
 // For reasons explained elsewhere (no link, sorry), react-router-dom 6 and higher will not work for my needs given how I want data to flow from one component to another.
 
+import './app-router.scss';
+
 const APIURL = 'https://avant-garde-api.herokuapp.com/'
 
 export default function AppRouter() {
-  const [selectedDisc, setSelectedDisc] = useState(null)
-  const [composers, setComposers] = useState(null)
-  const [pieces, setPieces] = useState(null)
-  const [recordings, setRecordings] = useState(null)
+  // const [composers, setComposers] = useState(null)
+  // const [pieces, setPieces] = useState(null)
+  // const [recordings, setRecordings] = useState(null)
   const [discs, setDiscs] = useState([])
 
   useEffect(() => {
-    axios.get(`${APIURL}composers`).then((response) => {
-      setComposers(response.data);
-    })
-    axios.get(`${APIURL}pieces`).then((response) => {
-      setPieces(response.data);
-    })
-    axios.get(`${APIURL}recordings`).then((response) => {
-      setRecordings(response.data);
-    })
+    // axios.get(`${APIURL}composers`).then((response) => {
+    //   setComposers(response.data);
+    // })
+    // axios.get(`${APIURL}pieces`).then((response) => {
+    //   setPieces(response.data);
+    // })
+    // axios.get(`${APIURL}recordings`).then((response) => {
+    //   setRecordings(response.data);
+    // })
     axios.get(`${APIURL}discs`).then((response) => {
       setDiscs(response.data);
     })
@@ -45,7 +44,7 @@ export default function AppRouter() {
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
-  useEffect(() => { console.log("composers is" + JSON.stringify(composers)) }, [composers, pieces, recordings, discs])
+  useEffect(() => { }, [discs])
 
 
   return (
@@ -56,21 +55,20 @@ export default function AppRouter() {
         <Row className="main-view justify-content-md-start">
           <Route exact path="/" render={() => {
             return discs.map(d => (
-              <Col md={3} key={d._id.$oid}>
+              <Col md={3} key={d._id.$oid} className="disc-card-col">
                 <DiscCard disc={d} />
               </Col>
             ))
           }} />
           <Route path="/discs/:discId" render={({ match, history }) => {
-            return <Col md={8}>
-              <DiscView disc={discs.find(d => d._id === match.params.discId)} onBackClick={() => history.goBack()} />
+            return <Col>
+              <DiscView key={match.params.discId || 'empty'} disc={discs.find(d => d._id === match.params.discId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
           <Route path="/composers/:surname" render={({ match, history }) => {
-            console.log("discs is" + discs);
-            console.log("composers is" + JSON.stringify(composers));
-            return <Col md={8}>
-              <ComposerView composer={composers.find(c => c.surname === match.params.surname)} onBackClick={() => history.goBack()} />
+            return <Col>
+              <ComposerView key={match.params.surname || 'empty'} onBackClick={() => history.goBack()} />
+              {/* composer={composers.find(c => c.surname === match.params.surname)}  */}
             </Col>
           }} />
           <Route path="/about" render={({ history }) => {
@@ -78,10 +76,6 @@ export default function AppRouter() {
               <About onBackClick={() => history.goBack()} />
             </Col>
           }} />
-
-          {/* <Route exact path="discs/:discId">
-            <DiscView />
-          </Route> */}
           <Route
             path="*"
             element={
