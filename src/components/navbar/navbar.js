@@ -7,7 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" fixed="top">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>AGDb</Navbar.Brand>
