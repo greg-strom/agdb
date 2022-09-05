@@ -10,9 +10,7 @@ const APIURL = 'https://avant-garde-api.herokuapp.com/'
 
 export default function ComposerViewTest(props) {
   const { onBackClick } = props;
-
   const { surname } = useParams();
-
   const [composer, setComposer] = useState(null)
 
   useEffect(() => {
@@ -21,7 +19,6 @@ export default function ComposerViewTest(props) {
       console.log("the first useEffect in composerview thinks that the surname is " + surname);
     })
   }, [])
-
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
@@ -45,7 +42,6 @@ export default function ComposerViewTest(props) {
           </Card.Body>
         </Card>
       </Col>
-
     </Row>
   )
 }
