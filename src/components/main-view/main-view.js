@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as HashRouter, Switch, Route } from "react-router-dom";
 import axios from 'axios';
 
 import NavBar from "../navbar/navbar";
@@ -49,40 +49,42 @@ export default function MainView() {
 
 
   return (
-    <Router>
+    <HashRouter>
       <NavBar key={"NavBar"} />
       <Row className="main-view justify-content-md-start">
-        <Route exact path="/" render={() => {
-          return discs.map(d => (
-            <Col md={3} key={d._id} className="disc-card-col">
-              <DiscCard disc={d} />
+        <Switch>
+          <Route exact path="/" render={() => {
+            return discs.map(d => (
+              <Col md={3} key={d._id} className="disc-card-col">
+                <DiscCard disc={d} />
+              </Col>
+            ))
+          }} />
+          <Route path="/discs/:discId" render={({ match, history }) => {
+            return <Col>
+              <DiscView key={match.params.discId || 'empty'} disc={discs.find(d => d._id === match.params.discId)} onBackClick={() => history.goBack()} />
             </Col>
-          ))
-        }} />
-        <Route path="/discs/:discId" render={({ match, history }) => {
-          return <Col>
-            <DiscView key={match.params.discId || 'empty'} disc={discs.find(d => d._id === match.params.discId)} onBackClick={() => history.goBack()} />
-          </Col>
-        }} />
-        <Route path="/composers/:surname" render={({ match, history }) => {
-          return <Col>
-            <ComposerView key={match.params.surname || 'empty'} onBackClick={() => history.goBack()} />
-          </Col>
-        }} />
-        <Route path="/about" render={({ history }) => {
-          return <Col>
-            <About key={"about"} onBackClick={() => history.goBack()} />
-          </Col>
-        }} />
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />
+          }} />
+          <Route path="/composers/:surname" render={({ match, history }) => {
+            return <Col>
+              <ComposerView key={match.params.surname || 'empty'} onBackClick={() => history.goBack()} />
+            </Col>
+          }} />
+          <Route path="/about" render={({ history }) => {
+            return <Col>
+              <About key={"about"} onBackClick={() => history.goBack()} />
+            </Col>
+          }} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+        </Switch>
       </Row>
-    </Router>
+    </HashRouter>
   );
 }
