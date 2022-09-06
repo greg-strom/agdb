@@ -36,17 +36,17 @@ export default function DiscView(props) {
             <LinkContainer to={`/composers/${disc && disc.recordings[0].composer.surname}`} className="link">
               <Card.Title>{disc && disc.recordings[0].composer.givenname} {disc && disc.recordings[0].composer.surname}</Card.Title>
             </LinkContainer>
-            <div className="recording-info-wrapper">
+            <Card.Body>
               {disc && disc.recordings.map((recording) => (
-                <div key={recording._id} className="recording-info">
-                  <Card.Subtitle className="piece-title-and-year"><span className="piece-title-span">{recording.piece.title}</span> <span className="piece-year-span">({recording.piece.year}</span>)</Card.Subtitle>
+                <Card.Body key={recording._id} className="recording-info">
+                  <Card.Subtitle className="piece-title-and-year"><span className="piece-title-span">{recording.piece.title}</span> ({recording.piece.year})</Card.Subtitle>
                   <Card.Subtitle className="performers-info">{recording.performers.map((performer, index) => (
                     <span key={index}>{performer + (index === recording.performers.length - 1 ? '' : ', ')} </span>
                   ))}
                   </Card.Subtitle>
-                </div>
+                </Card.Body>
               ))}
-            </div>
+            </Card.Body>
           </Card.Body>
         </Card>
       </Col>

@@ -17,10 +17,10 @@ export default function DiscCard(props) {
         <LinkContainer to={`/composers/${disc.recordings[0].composer.surname}`} className="link">
           <Card.Title>{disc.recordings[0].composer.givenname} {disc.recordings[0].composer.surname}</Card.Title>
         </LinkContainer>
-        {disc.recordings.map((recording, index) => (
-          <div key={recording._id}>
-            <Card.Text className="piece-details"><span className="piece-title">{recording.piece.title}</span> ({recording.piece.year})</Card.Text>
-          </div>
+        {disc.recordings.map((recording) => (
+          <Card.Body key={recording._id}>
+            <Card.Subtitle className="piece-details"><span className="piece-title">{recording.piece.title}</span> ({recording.piece.year})</Card.Subtitle>
+          </Card.Body>
         ))}
       </Card.Body>
     </Card >
