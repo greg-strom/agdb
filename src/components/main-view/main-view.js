@@ -20,12 +20,14 @@ import './main-view.scss';
 const APIURL = 'https://avant-garde-api.herokuapp.com/'
 
 export default function MainView() {
+  // there are a lot of useStates here that I might some day have a use for, so I'm keeping them in commented out form
   // const [composers, setComposers] = useState(null)
   // const [pieces, setPieces] = useState(null)
   // const [recordings, setRecordings] = useState(null)
   const [discs, setDiscs] = useState([])
 
   useEffect(() => {
+    // there are a lot of get requests here that I might some day have a use for, so I'm keeping them in commented out form
     // axios.get(`${APIURL}composers`).then((response) => {
     //   setComposers(response.data);
     // })
