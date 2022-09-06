@@ -9,7 +9,6 @@ import ComposerView from "../composer-view/composer-view";
 import About from "../about-view/about";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-//import { getDiscs } from './data/discs';
 
 // note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/71832720/link-tag-inside-browserrouter-changes-only-the-url-but-doesnt-render-the-compo --
 // it is necessary to use react-router-dom 5.3.3, not any earlier version, to get Link compatible with React.
