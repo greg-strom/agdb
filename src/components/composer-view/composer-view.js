@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const APIURL = 'https://avant-garde-api.herokuapp.com/'
+import APIURL from '../../data/apiurl.js'
 
 export default function ComposerViewTest(props) {
   const { onBackClick } = props;

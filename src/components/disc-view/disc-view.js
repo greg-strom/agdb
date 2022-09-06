@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import './disc-view.scss';
 
-const APIURL = 'https://avant-garde-api.herokuapp.com/';
+import APIURL from '../../data/apiurl.js'
 
 export default function DiscView(props) {
   const { onBackClick } = props;

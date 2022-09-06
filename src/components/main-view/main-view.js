@@ -17,7 +17,7 @@ import Col from 'react-bootstrap/Col';
 
 import './main-view.scss';
 
-const APIURL = 'https://avant-garde-api.herokuapp.com/'
+import APIURL from '../../data/apiurl.js'
 
 export default function MainView() {
   // there are a lot of useStates here that I might some day have a use for, so I'm keeping them in commented out form
