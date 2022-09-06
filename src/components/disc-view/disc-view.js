@@ -20,7 +20,7 @@ export default function DiscView(props) {
     axios.get(`${APIURL}discs/${discId}`).then((response) => {
       setDisc(response.data);
     })
-  }, [])
+  }, [discId])
 
   // Note to self: for reasons sort of explained here -- https://stackoverflow.com/questions/54069253/the-usestate-set-method-is-not-reflecting-a-change-immediately
   // -- the following useEffect is necessary in order for the data received from the axios API calls above to get fixed properly as the values of the useState constants.
