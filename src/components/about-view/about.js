@@ -9,7 +9,7 @@ export default function About(props) {
     <div className="about-container">
       <p>The AGDb is a personal project of mine with many goals...</p>
       <ul className="goal-list">
-        <li className="list-item">to share my love for the great generation of avant-garde composers that came into their prime in the 1950s, </li>
+        <li className="list-item">to share my love for the great generation of avant-garde composers who came into their prime in the 1950s, </li>
         <li className="list-item">to practice and show off my fullstack web development skills by building a cool website from top (React) to bottom (node & MongoDB), and</li>
         <li className="list-item">to use the collection of about 3000 experimental classical music CDs that I’ve been assembling since the 1990s to do something creative, maybe semi-autobiographical, and hopefully useful and informative for other people.</li>
       </ul>
