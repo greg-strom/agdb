@@ -49,7 +49,7 @@ export default function MainView() {
 
 
   return (
-    <HashRouter>
+    <HashRouter basename="/AGDb" >
       <NavBar key={"NavBar"} />
       <Row className="main-view justify-content-md-start">
         <Switch>
