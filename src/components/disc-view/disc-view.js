@@ -55,7 +55,7 @@ export default function DiscView(props) {
           <Card.Body>
             {disc && disc.comments
               ?
-              <Card.Text className="post">{disc && disc.comments}</Card.Text>
+              <Card.Text className="post">{disc && disc.comments.map(c => (<p>{c}<br /></p>))}</Card.Text>
               :
               <Card.Text className="post">In the fullness of time, I will post some commentary about this CD here.</Card.Text>
             }
