@@ -34,7 +34,7 @@ export default function ComposerViewTest(props) {
         <Card className="border-0">
           <Card.Body>
             <Card.Title>{composer && composer.givenname} {composer && composer.surname}</Card.Title>
-            <Card.Subtitle>{composer && composer.moreinfositepath && <span>You can find lots of good info about {composer.surname} <a href={composer.moreinfositepath} target="_blank" rel="noreferrer">here</a>. And </span>}Wikipedia has all the essential facts about {composer && composer.surname} <a href={composer && composer.wikipath} target="_blank" rel="noreferrer">here</a>, so I've written up some personal reflections instead.</Card.Subtitle>
+            <Card.Subtitle>Wikipedia has all the essential <a href={composer && composer.wikipath} target="_blank" rel="noreferrer">facts</a>,{composer && composer.moreinfositepath && <span> and you can also find lots of good info about {composer.surname} <a href={composer.moreinfositepath} target="_blank" rel="noreferrer">here</a>,</span>} so what I'm presenting below are some personal reflections that I've written up instead.</Card.Subtitle>
             <br />
             <Card.Text>{composer && composer.description.map(p => (<p>{p}<br /></p>))}</Card.Text>
             <Button className="back-button" variant="primary" type="submit" onClick={() => { onBackClick(null); }}>Back</Button>
