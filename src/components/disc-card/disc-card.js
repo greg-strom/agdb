@@ -8,6 +8,8 @@ import './disc-card.scss';
 export default function DiscCard(props) {
   const { disc } = props;
 
+  //test
+
   return (
     <Card className="h-100 m-25 border-0 disc-card">
       <Link to={`/discs/${disc._id}`} className="link">
