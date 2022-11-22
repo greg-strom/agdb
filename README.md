@@ -1,4 +1,4 @@
-# H1 the AGDb
+# the AGDb
 
 The AGDb is a personal project of mine with many goals...
 
@@ -10,13 +10,13 @@ I’ll be writing up little essays to accompany the CDs and composers I put on d
 
 The site will gradually acquire new features and content as my schedule permits, eventually expanding to include other composers and schools of experimental composition. For now, please check out what I’ve done and let me know what you think. Thanks for reading!
 
-# H2 Technologies used:
+## Technologies used:
 -create-react-app -axios -react -react-bootstrap
 
-# H2 User Stories
+## User Stories
 -As a user, I want to be able to access information on avant-garde composers, compositions, performances, and CDs so that I can learn more about music I might be interested in.
 
-# H2 Features
+## Features
 Main View -Returns a list of CDs to the user (each listed item with an image, composer's name, and a list of the pieces recorded on the disc
 
 Disc View -Returns data about a single CD to the user
